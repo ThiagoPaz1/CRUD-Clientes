@@ -11,5 +11,5 @@
 </ul>
 <h2>Comandos uteis:</h2>
 <ul>
-  <li>Para iniciar aplicação digite<h5>npm run dev</h5></li>
+  <li>Para iniciar aplicação digite:<h5>npm run dev</h5></li>
 </ul>
