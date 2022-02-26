@@ -1,5 +1,6 @@
 <script>
-  import Clients from '../db/Clients';
+  import { onUnmounted } from 'vue';
+import Clients from '../db/Clients';
   import AddNewClients from './AddNewClients.vue';
   import EditClient from './EditClient.vue';
 
@@ -23,6 +24,15 @@
       edit(client) {
         this.editClientProps = client;
       },
+      deleteClient(client) {
+        this.clients = Clients.filter((item) => item.id != client.id);
+
+       Clients.filter((item, index) => {
+          if (item.id == client.id) {
+            Clients.splice(index, 1);
+          }
+        });
+      }
     }
   }
 </script>
@@ -38,6 +48,7 @@
         <router-link :to="{name: 'EditClient', params: editClientProps}">
           <button @click="edit(client)">Editar</button>
         </router-link>
+        <button @click="deleteClient(client)">Deletar</button>
       </li>
     </ul>
     <router-link to="/addClients">
